@@ -1,7 +1,17 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/c++,ros
-# Edit at https://www.toptal.com/developers/gitignore?templates=c++,ros
+# Edit at https://www.toptal.com/developers/gitignore?templates=c++,ros,vscode
 
+
+### vscode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# End of https://www.toptal.com/developers/gitignore/api/vscode
 ### C++ ###
 # Prerequisites
 *.d
