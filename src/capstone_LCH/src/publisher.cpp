@@ -20,7 +20,7 @@ int main(int argc, char **argv)
    * You must call one of the versions of ros::init() before using any other
    * part of the ROS system.
    */
-  ros::init(argc, argv, "talker");
+  ros::init(argc, argv, "publish_node");
 
   /**
    * NodeHandle is the main access point to communications with the ROS system.
@@ -67,12 +67,11 @@ int main(int argc, char **argv)
     msg.data = ss.str();
 
     ROS_INFO("%s", msg.data.c_str());
+    points_pub.publish(msg);
 
     capstone_LCH::pointXY points;
-    points.x.push_back([5]);
-    points.y.push_back([5]);
-
-    points_pub.publish(msg);
+    points.x.push_back(5);
+    points.y.push_back(5);
 
     ros::spinOnce();
 
