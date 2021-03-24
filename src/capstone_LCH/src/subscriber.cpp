@@ -26,7 +26,10 @@ int main(int argc, char **argv)
   float f = 0.0;
   while (ros::ok())
   {
-
+    std_msgs::Float64 tmp;
+    tmp.data = line_list_type;
+    marker_pub.publish(tmp);
+    
     visualization_msgs::Marker points, line_strip, line_list;
     points.header.frame_id = line_strip.header.frame_id = line_list.header.frame_id = "map";
     
