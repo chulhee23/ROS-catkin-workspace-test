@@ -16,8 +16,7 @@ int main(int argc, char **argv)
   ros::NodeHandle n;
 
   ros::Subscriber marker_sub = n.subscribe('/points', 1000, callback);
-
-  ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
+  ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("initial", 10);
 
   
 
@@ -29,7 +28,7 @@ int main(int argc, char **argv)
     std_msgs::Float64 tmp;
     tmp.data = line_list_type;
     marker_pub.publish(tmp);
-    
+
     visualization_msgs::Marker points, line_strip, line_list;
     points.header.frame_id = line_strip.header.frame_id = line_list.header.frame_id = "map";
     
