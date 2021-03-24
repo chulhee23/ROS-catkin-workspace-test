@@ -3,11 +3,23 @@
 
 #include <cmath>
 
+float line_list_type;
+void callback(const std_msgs::Float64 &msg)
+{
+  line_list_type = msg.data;
+  ROS_INFO("%f", line_list_type);
+}
+
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "points_and_lines");
   ros::NodeHandle n;
+
+  ros::Subscriber marker_sub = n.subscribe('/points', 1000, callback);
+
   ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
+
+  
 
   ros::Rate r(30);
 
@@ -16,7 +28,8 @@ int main(int argc, char **argv)
   {
 
     visualization_msgs::Marker points, line_strip, line_list;
-    points.header.frame_id = line_strip.header.frame_id = line_list.header.frame_id = "/points";
+    points.header.frame_id = line_strip.header.frame_id = line_list.header.frame_id = "map";
+    
     points.header.stamp = line_strip.header.stamp = line_list.header.stamp = ros::Time::now();
     points.ns = line_strip.ns = line_list.ns = "points_and_lines";
     points.action = line_strip.action = line_list.action = visualization_msgs::Marker::ADD;
@@ -28,7 +41,10 @@ int main(int argc, char **argv)
 
     points.type = visualization_msgs::Marker::POINTS;
     line_strip.type = visualization_msgs::Marker::LINE_STRIP;
-    line_list.type = visualization_msgs::Marker::LINE_LIST;
+    
+    // custom
+    line_list.type = line_list_type;
+    // line_list.type = visualization_msgs::Marker::LINE_LIST;
 
     // POINTS markers use x and y scale for width/height respectively
     points.scale.x = 0.2;
