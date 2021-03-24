@@ -4,6 +4,7 @@
 #include <std_msgs/Float64.h>
 
 float line_list_type;
+
 void callback(const std_msgs::Float64 &msg)
 {
   line_list_type = msg.data;

@@ -1,7 +1,7 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
-#include "capstone_LCH::pointXY.h"
+#include <capstone_LCH/pointXY.h>
 
 #include <sstream>
 
