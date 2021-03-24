@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
-
 #include <cmath>
+#include <std_msgs/Float64.h>
 
 float line_list_type;
 void callback(const std_msgs::Float64 &msg)
