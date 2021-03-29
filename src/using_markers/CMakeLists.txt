@@ -1,17 +1,62 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(capstone_LCH)
+project(using_markers)
 
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  std_msgs
-  message_generation
+	roscpp
+	visualization_msgs
+)
+catkin_package(
+	CATKIN_DEPENDS
+	roscpp
+	visualization_msgs
 )
 
-## Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  pointXY.msg
+include_directories(
+	# include
+	${catkin_INCLUDE_DIRS}
 )
+
+add_executable(basic_shapes src/basic_shapes.cpp)
+target_link_libraries(basic_shapes ${catkin_LIBRARIES})
+
+
+
+
+## Uncomment this if the package has a setup.py. This macro ensures
+## modules and global scripts declared therein get installed
+## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
+# catkin_python_setup()
+
+################################################
+## Declare ROS messages, services and actions ##
+################################################
+
+## To declare and build messages, services or actions from within this
+## package, follow these steps:
+## * Let MSG_DEP_SET be the set of packages whose message types you use in
+##   your messages/services/actions (e.g. std_msgs, actionlib_msgs, ...).
+## * In the file package.xml:
+##   * add a build_depend tag for "message_generation"
+##   * add a build_depend and a exec_depend tag for each package in MSG_DEP_SET
+##   * If MSG_DEP_SET isn't empty the following dependency has been pulled in
+##     but can be declared for certainty nonetheless:
+##     * add a exec_depend tag for "message_runtime"
+## * In this file (CMakeLists.txt):
+##   * add "message_generation" and every package in MSG_DEP_SET to
+##     find_package(catkin REQUIRED COMPONENTS ...)
+##   * add "message_runtime" and every package in MSG_DEP_SET to
+##     catkin_package(CATKIN_DEPENDS ...)
+##   * uncomment the add_*_files sections below as needed
+##     and list every .msg/.srv/.action file to be processed
+##   * uncomment the generate_messages entry below
+##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
+
+## Generate messages in the 'msg' folder
+# add_message_files(
+#   FILES
+#   Message1.msg
+#   Message2.msg
+# )
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -28,11 +73,10 @@ add_message_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-
-generate_messages(
-  DEPENDENCIES
-  std_msgs
-)
+# generate_messages(
+#   DEPENDENCIES
+#   visualization_msgs
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -63,17 +107,12 @@ generate_messages(
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES capstone_LCH
+#  LIBRARIES using_markers
+#  CATKIN_DEPENDS roscpp visualization_msgs
 #  DEPENDS system_lib
-  CATKIN_DEPENDS 
-  roscpp 
-  std_msgs
-  message_runtime
 )
-
 
 ###########
 ## Build ##
@@ -88,7 +127,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/capstone_LCH.cpp
+#   src/${PROJECT_NAME}/using_markers.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -99,13 +138,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/capstone_LCH_node.cpp)
-
-add_executable(publisher src/publisher.cpp)
-target_link_libraries(publisher  ${catkin_LIBRARIES})
-# add_executable(subscriber src/subscriber.cpp)
-# target_link_libraries(subscriber  ${catkin_LIBRARIES})
-
+# add_executable(${PROJECT_NAME}_node src/using_markers_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -169,7 +202,7 @@ target_link_libraries(publisher  ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_capstone_LCH.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_using_markers.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
