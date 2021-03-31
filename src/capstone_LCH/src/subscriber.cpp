@@ -15,27 +15,28 @@ void callback(const capstone_LCH::pointXY::ConstPtr& input)
   line_list.id = 0;
   
   line_list.type = visualization_msgs::Marker::LINE_LIST;
-  
   line_list.action = visualization_msgs::Marker::ADD;
   
-  line_list.scale.x = 1;
-  line_list.scale.y = 0.1;
-  line_list.scale.z = 0.1;
+  line_list.scale.x = 0.1;
+  line_list.scale.y = 0;
+  line_list.scale.z = 0;
 
   line_list.color.a = 1.0;
   line_list.color.r = 1.0;
 
   line_list.pose.orientation.w = 1.0;
 
-  
-  for (int i = 0; i < 4; i++)
+  float y_arr[], y_arr[];
+  x_arr = {1, 1, 1, 1}
+  y_arr = {1, 1, 1, 1}
+
+  for (int i = 0; i < 20; i++)
   {
     geometry_msgs::Point p;
     p.x = input -> x[i];
     p.y = input -> y[i];
     p.z = 0;
     line_list.points.push_back(p);
-
   }
 
   marker_pub.publish(line_list);
