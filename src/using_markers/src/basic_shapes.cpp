@@ -61,6 +61,7 @@ int main( int argc, char** argv )
       ROS_WARN_ONCE("Please create a subscriber to the marker");
       sleep(1);
     }
+    
     marker_pub.publish(marker);
 
     // Cycle between different shapes
