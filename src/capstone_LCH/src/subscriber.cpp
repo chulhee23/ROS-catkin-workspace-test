@@ -21,7 +21,10 @@ void callback(const capstone_LCH::pointXY::ConstPtr& input)
   line_list.scale.x = 1;
   line_list.scale.y = 1;
   line_list.scale.z = 1;
-  
+
+  line_list.color.a = 1.0;
+  line_list.color.r = 1.0;
+
   line_list.pose.orientation.w = 1.0;
 
   for (int i = 0; i < 1000; i++)
