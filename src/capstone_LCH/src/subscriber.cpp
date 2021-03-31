@@ -26,9 +26,7 @@ void callback(const capstone_LCH::pointXY::ConstPtr& input)
 
   line_list.pose.orientation.w = 1.0;
 
-  float y_arr[], y_arr[];
-  x_arr = {1, 1, 1, 1}
-  y_arr = {1, 1, 1, 1}
+  
 
   for (int i = 0; i < 20; i++)
   {

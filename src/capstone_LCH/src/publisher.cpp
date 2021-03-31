@@ -15,7 +15,6 @@ int main(int argc, char **argv)
   {
     capstone_LCH::pointXY input;
     
-    // draw L
     input.x = {-1, -1, -1, 0,     2, 2, 2, 1, 1, 1, 1, 2, 2, 2,          3, 3, 3, 4, 4, 4   };
     input.y = {1, -1, -1, -1,   0.5, 1, 1, 1, 1, -1, -1, -1, -1, -0.5,  1, -1, 0, 0, 1, -1  };
     
