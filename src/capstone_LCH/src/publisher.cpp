@@ -9,9 +9,7 @@ int main(int argc, char **argv)
   ros::NodeHandle nh;
 
   ros::Rate loop_rate(10);
-  // ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
   ros::Publisher publisher = nh.advertise<capstone_LCH::pointXY>("/points", 10);
-  visualization_msgs::Marker line_list;
 
   while (ros::ok())
   {
