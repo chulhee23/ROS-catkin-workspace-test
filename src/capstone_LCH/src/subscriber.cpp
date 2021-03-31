@@ -8,7 +8,7 @@ void callback(const capstone_LCH::pointXY::ConstPtr& input)
 {
   visualization_msgs::Marker line_list;
   
-  line_list.header.frame_id = "/my_frame";
+  line_list.header.frame_id = "map";
   line_list.header.stamp = ros::Time::now();
   
   line_list.ns = "points_and_lines";
