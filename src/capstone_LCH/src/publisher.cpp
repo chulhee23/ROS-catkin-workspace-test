@@ -1,21 +1,11 @@
 #include <ros/ros.h>
-#include <cmath>
 #include <visualization_msgs/Marker.h>
 #include <capstone_LCH/pointXY.h>
-#include <iostream>
 
 void drawL(capstone_LCH::pointXY input)
 {
-  for (int i = 20; i <= -10; i--)
-  {
-    input.x.push_back(-10);
-    input.y.push_back(i);
-  }
-  for (int i = -10; i <= 0; i++)
-  {
-    input.x.push_back(-10);
-    input.y.push_back(-10);
-  }
+  input.x = {-1, -1, -1, 0};
+  input.y = {1, -1, -1, -1};
 }
 
 int main(int argc, char **argv)
