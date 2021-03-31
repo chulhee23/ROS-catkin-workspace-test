@@ -2,6 +2,7 @@
 #include <cmath>
 #include <visualization_msgs/Marker.h>
 #include <capstone_LCH/pointXY.h>
+#include <iostream>
 
 int main(int argc, char **argv)
 {
@@ -15,10 +16,10 @@ int main(int argc, char **argv)
   {
     capstone_LCH::pointXY input;
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 100; i++)
     {
       input.x.push_back(i);
-      input.y.push_back(0);
+      input.y.push_back(i);
     }
     
     publisher.publish(input);
