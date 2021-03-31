@@ -2,7 +2,7 @@
 #include <visualization_msgs/Marker.h>
 #include <capstone_LCH/pointXY.h>
 
-ros::Publisher marker_pub;
+
 
 void callback(const capstone_LCH::pointXY::ConstPtr& input)
 {
@@ -43,6 +43,8 @@ int main(int argc, char** argv)
 {
   ros::init(argc, argv, "initial");
   ros::NodeHandle n;
+  ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+
   ros::Subscriber sub = n.subscribe("/points", 1, callback);
 
   ros::spin();
