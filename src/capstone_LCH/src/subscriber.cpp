@@ -30,7 +30,7 @@ void callback(const capstone_LCH::pointXY::ConstPtr& input)
     p.x = input -> x[i];
     p.y = input -> y[i];
     p.z = 0;
-    line_list.points.push_pack(p);
+    line_list.points.push_back(p);
 
   }
 
