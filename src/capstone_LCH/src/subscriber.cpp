@@ -24,7 +24,7 @@ void callback(const capstone_LCH::pointXY::ConstPtr& input)
   
   line_list.pose.orientation.w = 1.0;
 
-  for (int i = 0; i < 26; i++)
+  for (int i = 0; i < 1000; i++)
   {
     geometry_msgs::Point p;
     p.x = input -> x[i];
@@ -41,9 +41,9 @@ void callback(const capstone_LCH::pointXY::ConstPtr& input)
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "initial");
+  ros::init(argc, argv, "sub_node");
   ros::NodeHandle n;
-  marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+  marker_pub = n.advertise<visualization_msgs::Marker>("initial", 1);
   ros::Subscriber sub = n.subscribe("/points", 1, callback);
 
   ros::spin();

@@ -16,7 +16,7 @@ int main(int argc, char **argv)
   {
     capstone_LCH::pointXY input;
 
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 1000; i++)
     {
       input.x.push_back(i);
       input.y.push_back(i);
