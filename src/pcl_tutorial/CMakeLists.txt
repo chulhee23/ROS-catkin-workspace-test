@@ -21,3 +21,6 @@ target_link_libraries(passthrough ${catkin_LIBRARIES})
 
 add_executable(kdtree src/kdtree.cpp)
 target_link_libraries(kdtree ${catkin_LIBRARIES})
+
+add_executable(clustering src/clustering.cpp)
+target_link_libraries(clustering ${catkin_LIBRARIES})
