@@ -12,5 +12,12 @@ ${catkin_INCLUDE_DIRS}
 )
 add_executable(vLidar src/vLidar.cpp)
 target_link_libraries(vLidar ${catkin_LIBRARIES})
+
 add_executable(voxel src/voxel.cpp)
 target_link_libraries(voxel ${catkin_LIBRARIES})
+
+add_executable(passthrough src/passthrough.cpp)
+target_link_libraries(passthrough ${catkin_LIBRARIES})
+
+add_executable(kdtree src/kdtree.cpp)
+target_link_libraries(kdtree ${catkin_LIBRARIES})
