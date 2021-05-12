@@ -4,7 +4,8 @@ project(capstone_LCH)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
-  message_generation
+  # message_generation
+  pcl_ros
 )
 
 ## Generate messages in the 'msg' folder
@@ -41,9 +42,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+add_executable(laneFitting src/laneFitting.cpp)
+target_link_libraries(laneFitting  ${catkin_LIBRARIES})
 
-add_executable(publisher src/publisher.cpp)
-target_link_libraries(publisher  ${catkin_LIBRARIES})
-add_executable(subscriber src/subscriber.cpp)
-target_link_libraries(subscriber  ${catkin_LIBRARIES})
+
+# add_executable(publisher src/publisher.cpp)
+# target_link_libraries(publisher  ${catkin_LIBRARIES})
+# add_executable(subscriber src/subscriber.cpp)
+# target_link_libraries(subscriber  ${catkin_LIBRARIES})
 

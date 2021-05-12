@@ -59,6 +59,7 @@ void callbackFcn(const sensor_msgs::PointCloud2::ConstPtr& msg)
 
 
 int main(int argc, char** argv)
+
 {
     ros::init(argc, argv, "clustering");
     ros::NodeHandle nh;
