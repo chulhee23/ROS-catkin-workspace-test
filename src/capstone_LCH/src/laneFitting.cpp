@@ -17,11 +17,6 @@ void msgCallback(const sensor_msgs::PointCloud2::ConstPtr& msg){
   pcl::PointCloud<pcl::PointXYZ> inputCloud;
   pcl::fromROSMsg(*msg, inputCloud);
 
-  // inputCloud.width = inputCloud.points.size();
-  // inputCloud.height = 1; //2D Lidar data
-  // is_dense : if lidar data empty? 
-  
-  // inputCloud.points.resize(inputCloud.width * inputCloud.height);
   
   // draw line
   visualization_msgs::Marker line;
@@ -109,17 +104,6 @@ void msgCallback(const sensor_msgs::PointCloud2::ConstPtr& msg){
   p2.z = 0;
   line.points.push_back(p2);
 
-
-  // for(int i = 0; i < inputCloud.points.size(); i++){
-  //   geometry_msgs::Point p;
-
-  //   p.x = inputCloud.points[i].x;
-  //   p.y = inputCloud.points[i].y;
-  //   p.z = 0;
-  //   line.points.push_back(p);
-    
-  // }
-  
 
   pub.publish(line);
 
