@@ -11,22 +11,7 @@ float getLineY(float x1, float x2, float y1, float y2, float x3){
   return (float(y2 - y1)/float(x2 - x1) * (x3 - x1) + y1);
 }
 
-struct dense_w {
-  float d_w0;
-  float d_w1;
-}
 
-
-dese_w dmse_line(float[] x, float[] t, float[] w){
-  
-  float y = w[0] * x + w[1];
-  
-
-
-  float d_w0 = 2 * mean((y - t) * x);
-  
-
-}
 
 void msgCallback(const sensor_msgs::PointCloud2::ConstPtr& msg){
   
@@ -78,31 +63,19 @@ void msgCallback(const sensor_msgs::PointCloud2::ConstPtr& msg){
     
     // 3. calculate distance from all dots
     float cur_err = 0;
-    for(int j = arr_size -1; j > arr_size - 20; j--){
-      float x3 = inputCloud.points[j].x;
-      float y3 = getLineY(x1, x2, y1, y2, x3);  
-      if(x3 > x2){
-        x2 = x3; y2 = y3;
-      } else if (x3 < x1){
-        x1 = x3; y1 = y3;
-      }
-    }
-
 
     for(int j = 0; j < 20; j++){
       float x3 = inputCloud.points[j].x;
       float y3 = getLineY(x1, x2, y1, y2, x3);
-      if (x3 < x1){
-        x1 = x3; y1 = y3;
-      } else if(x3 > x2){
-        x2 = x3; y2 = y3;
-      }
       
       cur_err += pow((inputCloud.points[j].y - y3), 2);
     } 
     
     if(cur_err < error_sum){
-      a1 = x1; a2 = x2; b1 = y1; b2 = y2;
+      a1 = -5; a2 = 5; 
+      b1 = getLineY(x1, x2, y1, y2, a1);
+      
+      b2 = getLineY(x1, x2, y1, y2, a2);
     }
 
 
