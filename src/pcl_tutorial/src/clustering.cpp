@@ -24,7 +24,7 @@ void callbackFcn(const sensor_msgs::PointCloud2::ConstPtr& msg)
     
     ec.setClusterTolerance (1.5); // set distance threshold = 1.5m
     // size < min_value -> noise -> not cluster
-    ec.setMinClusterSize (10); // set Minimum Cluster Size
+    ec.setMinClusterSize (6); // set Minimum Cluster Size
     ec.setMaxClusterSize (25000); // set Maximum Cluster Size
 
     // input: pointer
